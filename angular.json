@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "D:/Publish/FrontendPublish/CrudOperationAngular",
+            "outputPath": "dist/CrudOperation",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
