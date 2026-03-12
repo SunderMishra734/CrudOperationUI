@@ -1,0 +1,64 @@
+<main class="student-list-cls">
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Standard</th>
+                    <th>Email</th>
+                    <th>Father Name</th>
+                    <th>Mother Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(students.length > 0){
+                @for(student of paginatedStudents; track student){
+                <tr>
+                    <td>{{student.studentName}}</td>
+                    <td>{{student.studentAge}}</td>
+                    <td>{{student.studentStandard}}</td>
+                    <td>{{student.studentEmail}}</td>
+                    <td>{{student.studentFatherName}}</td>
+                    <td>{{student.studentMotherName}}</td>
+                    <td>
+                        <div class="action-btns">
+                            <i class="fa fa-pencil edit-icon-cls" (click)="editFn(student)"></i>
+                            <i class="fa fa-trash delete-icon-cls" (click)="deleteStudentFn(student)"></i>
+                        </div>
+                    </td>
+                </tr>
+                }
+                }
+                @else {
+                <tr>
+                    <td colspan="7" style="text-align: center; padding: 2rem; color: var(--text-muted);">No Data Found.</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        
+        @if(students.length > 0) {
+            <div class="pagination-cont-cls">
+                <div style="color: var(--text-muted); font-size: 0.875rem;">Showing <b>{{paginatedStudents.length}}</b> out of
+                    <b>{{totalEntries}}</b> entries</div>
+                <div class="pagination-controls">
+                    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+                    <button (click)="changePage(1)" [class.active]="currentPage === 1">1</button>
+                    <span *ngIf="currentPage > 4">...</span>
+                    <button *ngFor="let page of getPagesAroundCurrent()"
+                            (click)="changePage(page)"
+                            [class.active]="currentPage === page">
+                        {{ page }}
+                    </button>
+                    <span *ngIf="currentPage < totalPages - 3">...</span>
+                    <button (click)="changePage(totalPages)" [class.active]="currentPage === totalPages">
+                        {{ totalPages }}
+                    </button>                        
+                    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+                </div>
+            </div>
+        }
+    </div>
+</main>

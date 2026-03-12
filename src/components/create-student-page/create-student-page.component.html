@@ -1,0 +1,44 @@
+<main class="cs-cont-cls">
+    <div class="header-close-cs-cls">
+        <h2>{{actionName}} Student</h2>
+        <i class="fa fa-remove close-icon-cls" (click)="closeCreatePage()"></i>
+    </div>
+    <div class="form-grid">
+        <div class="form-group">
+            <label>Student Name</label>
+            <input autocomplete="off" autocapitalize="off" spellcheck="false" type="text" class="input-cls" placeholder="Enter Name" [(ngModel)]="stdName">
+        </div>
+        <div class="form-group">
+            <label>Student Age</label>
+            <input autocomplete="off" autocapitalize="off" spellcheck="false" type="text" class="input-cls" placeholder="Enter Age" [(ngModel)]="stdAge">
+        </div>
+        <div class="form-group">
+            <label>Class</label>
+            <select id="options" class="input-cls" [(ngModel)]="stdClass">
+                <option value="Not selected" disabled selected>Select an option</option>
+                <option *ngFor="let stdCls of stdClasses" [value]="stdCls">{{ stdCls }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Student Email</label>
+            <input type="email" class="input-cls" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Enter Email" [(ngModel)]="stdEmail">
+        </div>
+        <div class="form-group">
+            <label>Student Father's Name</label>
+            <input autocomplete="off" autocapitalize="off" spellcheck="false" type="text" class="input-cls" placeholder="Enter Father's Name" [(ngModel)]="stdFN">
+        </div>
+        <div class="form-group">
+            <label>Student Mother's Name</label>
+            <input autocomplete="off" autocapitalize="off" spellcheck="false" type="text" class="input-cls" placeholder="Enter Mother's Name" [(ngModel)]="stdMN">
+        </div>
+    </div>
+    <div class="create-cont-cls">
+        <div class="create-btn-cls" (click)="createStudentFn()">{{actionName}}</div>
+    </div>
+    <!-- <div class="black-bg-cls"></div>
+    <div class="popup-win-cls">
+        <div class="pw-main-cls">Please fill all data.</div>
+        <div class="pw-ft-cls"></div>
+    </div> -->
+</main>
+

@@ -1,0 +1,10 @@
+<app-student-nav (isCreate)="showStudentCreatePage($event)"></app-student-nav>
+@if(!isCreatePageVisible){
+<app-students-list-page (isCreatePage)="showStudentCreatePage($event)" (showToaster)="showToasterMessage($event)"></app-students-list-page>
+}
+@else {
+<app-create-student-page (isCreate)="showStudentCreatePage($event)" (showToaster)="showToasterMessage($event)"></app-create-student-page>
+}
+@if (isTaosterVisible) {
+<app-toaster-message [actionType]="actionType"></app-toaster-message>
+}
